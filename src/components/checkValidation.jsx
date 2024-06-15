@@ -11,7 +11,7 @@ export const validationAddUser = {
       message: "Username must be than 5 characters!",
     },
     {
-      validate: (value) => !/\s/.test(value),
+      validate: (value) => /^\S*$/.test(value),
       message: "Username cannot contain spaces!",
     },
   ],

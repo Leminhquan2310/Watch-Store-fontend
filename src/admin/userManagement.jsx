@@ -23,9 +23,21 @@ import { useEffect, useState } from "react";
 // import district from "../assets/quan_huyen.json";
 // import ward from "../assets/xa_phuong.json";
 import { validationAddUser } from "../components/checkValidation";
+import { useNavigate } from "react-router-dom";
+import {
+  createUser,
+  deleteUser,
+  getAllUser,
+  updateUser,
+} from "../service/usersService.js";
+
+axios.defaults.headers.common["Authorization"] = `Bearer ${localStorage.getItem(
+  "accessToken"
+)}`;
 
 function UserManagement() {
   const [api, contextHolder] = notification.useNotification();
+  const navigate = useNavigate();
   const [listUsers, setListUsers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [titleModal, setTitleModal] = useState("");
@@ -186,6 +198,41 @@ function UserManagement() {
   // check required input and call api insert data user
   const handleOkModalAdd = async () => {
     let errorItem = {};
+
+    const fetchCreateUser = async () => {
+      try {
+        const result = await createUser({ ...dataUser });
+        handleCancelModalAdd();
+        openNotification(
+          "top",
+          "Added",
+          `Add ${result.username} user successfully!`
+        );
+        fetchUsers();
+      } catch (error) {
+        if (error.response.status === 400) {
+          setCheckInput({ ...error.response.data, code: 400 });
+        }
+      }
+    };
+
+    const fetchUpdateUser = async () => {
+      try {
+        const result = await updateUser({ ...dataUser });
+        handleCancelModalAdd();
+        openNotification(
+          "top",
+          "Updated",
+          `Update ${result.username} user successfully!`
+        );
+        fetchUsers();
+      } catch (error) {
+        if (error.response.status === 400) {
+          setCheckInput({ ...error.response.data, code: 400 });
+        }
+      }
+    };
+
     if (!dataUser._id) {
       errorItem = Object.entries(dataUser).reduce((acc, [key, value]) => {
         if (value === "") {
@@ -205,41 +252,9 @@ function UserManagement() {
       Object.entries(errorItem).length === 0
     ) {
       if (dataUser._id) {
-        axios
-          .put("http://localhost:3000/api/v1/user/update-user", { ...dataUser })
-          .then((result) => {
-            handleCancelModalAdd();
-            openNotification(
-              "top",
-              "Updated",
-              `Update ${result.username} user successfully!`
-            );
-            getAllUsers();
-          })
-          .catch((err) => {
-            if (err.response.status === 400) {
-              setCheckInput({ ...err.response.data, code: 400 });
-            }
-          });
+        fetchUpdateUser();
       } else {
-        axios
-          .post("http://localhost:3000/api/v1/user/create-user", {
-            ...dataUser,
-          })
-          .then((result) => {
-            handleCancelModalAdd();
-            openNotification(
-              "top",
-              "Added",
-              `Add ${result.username} user successfully!`
-            );
-            getAllUsers();
-          })
-          .catch((err) => {
-            if (err.response.status === 400) {
-              setCheckInput({ ...err.response.data, code: 400 });
-            }
-          });
+        fetchCreateUser();
       }
     }
   };
@@ -258,24 +273,21 @@ function UserManagement() {
     });
   };
 
-  // function call api list users
-  const getAllUsers = () => {
-    axios
-      .get("http://localhost:3000/api/v1/user")
-      .then((result) => {
-        const listUsers = result.data.data.map((item, index) => {
-          return { ...item, key: index };
-        });
-        setListUsers(listUsers);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   // get api list users first time
+  const fetchUsers = async () => {
+    try {
+      const userData = await getAllUser();
+      console.log(userData);
+      const listUsers = userData.data.map((item, index) => {
+        return { ...item, key: index };
+      });
+      setListUsers(listUsers);
+    } catch (error) {
+      navigate("/login");
+    }
+  };
   useEffect(() => {
-    getAllUsers();
+    fetchUsers();
   }, []);
 
   // notification function
@@ -304,19 +316,20 @@ function UserManagement() {
 
   // call api and delete user
   const handleDeleteUser = () => {
+    console.log(modalDeleteData);
     setConfirmLoadingBtnConfirmDelete(true);
+    const fetchDeleteUser = async () => {
+      try {
+        await deleteUser(modalDeleteData._id);
+        openNotification("top", "Deleted", `Delete user successfully!`);
+        fetchUsers();
+      } catch (error) {
+        openNotification("top", "Warning", `Delete user failed!`);
+      }
+    };
+
     setTimeout(() => {
-      axios
-        .delete("http://localhost:3000/api/v1/user/delete-user", {
-          data: { userId: modalDeleteData._id },
-        })
-        .then(() => {
-          openNotification("top", "Deleted", `Delete user successfully!`);
-          getAllUsers();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      fetchDeleteUser();
       setConfirmLoadingBtnConfirmDelete(false);
       setIsOpenConfirmDelete(false);
     }, 1000);
@@ -325,6 +338,13 @@ function UserManagement() {
   return (
     <div>
       {contextHolder}
+      <Button
+        onClick={() => {
+          navigate("/login");
+        }}
+      >
+        Login
+      </Button>
       <h1
         style={{
           display: "flex",

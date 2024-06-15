@@ -59,9 +59,14 @@
   color: darkgray;
 }
 
-.login-page {
+.form-page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+h1{
+  padding: 50px 40px;
 }
