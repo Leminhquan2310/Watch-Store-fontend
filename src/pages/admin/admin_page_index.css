@@ -1,0 +1,218 @@
+.container {
+  min-height: 100vh;
+}
+
+.container .header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  height: 50px;
+  width: 100%;
+  padding: 0;
+  padding-right: 40px;
+  border-bottom: 1px solid #c8cbd9;
+  z-index: 100;
+  background: #fff;
+}
+
+.container .header .logo {
+  min-width: 240px;
+  background: var(--background-color-1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 30px 0 30px;
+}
+
+.container .header .logo .logo_icon {
+  width: 35px;
+  height: 35px;
+  background-color: var(--primary-color-5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  border: none;
+  font-weight: bold;
+  color: #fff;
+}
+
+.container .header .logo .logo_name {
+  width: 145px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 1px;
+  font-weight: bold;
+  color: var(--primary-color-5);
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+.container .header .search_tab {
+  display: flex;
+  padding: 5px 20px;
+  width: 100%;
+  background-color: #fff;
+}
+
+.container .header .search_tab .search_tag {
+  display: flex;
+  align-items: center;
+  width: 75%;
+  height: 40px;
+}
+.container .header .search_tab .search_tag .ant-input {
+  background: var(--background-color-1);
+  border: none;
+  height: 32px;
+  font-size: 12px;
+}
+
+.container .header .search_tab .search_tag .ant-input:focus {
+  border: none;
+  box-shadow: none;
+}
+
+.container .header .search_tab .search_tag .ant-btn {
+  background: var(--background-color-1);
+  border: none;
+}
+
+.container .header .search_tab .search_tag .ant-btn:hover > .ant-btn-icon {
+  color: var(--primary-color-5);
+}
+
+.container .header .profile {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 400px;
+  background: #fff;
+}
+
+.container .header .profile .avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+}
+
+.container .header .profile .name {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  height: 32px;
+  padding: 0 10px;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+}
+
+.container .header .profile .name .icon-dropdown {
+  margin: 3px 0 0 5px;
+  color: var(--primary-color-2);
+  cursor: pointer;
+}
+
+.container .header .profile .name .icon-dropdown:hover {
+  color: var(--primary-color-5);
+}
+
+.container .header .profile .icon_bell {
+  position: relative;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.container .header .profile .icon_bell::before {
+  position: absolute;
+  content: "";
+  width: 5px;
+  height: 5px;
+  background-color: red;
+  top: 8px;
+  right: 8px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.9;
+}
+
+.container .header .profile .icon_bell:hover > span {
+  color: var(--primary-color-5);
+}
+
+.container .header .profile .icon_bell span {
+  color: var(--primary-color-2);
+}
+
+.body {
+  width: 100%;
+}
+
+.body .sider {
+  position: fixed;
+  left: 0;
+  top: 50px;
+  min-height: calc(100vh - 50px);
+  min-width: 240px !important;
+  max-width: 240px !important;
+  flex: auto !important;
+  width: 240px !important;
+  background: var(--background-color-1);
+  padding-left: 14px;
+  padding-top: 30px;
+}
+
+.body .sider .menu {
+  background: none;
+  width: 212px;
+  border-inline-end: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.body .sider .menu .ant-menu-item {
+  color: #a6abc8;
+}
+
+.body .sider .menu .ant-menu-item:hover {
+  color: var(--primary-color-5);
+  background-color: var(--background-color-2);
+}
+
+.body .sider .menu .ant-menu-item-selected {
+  color: var(--primary-color-5);
+  background: var(--background-color-2);
+}
+
+.body .content {
+  margin-left: 240px;
+  margin-top: 50px;
+  min-height: calc(100vh - 50px);
+}
+.body .content .content_body {
+  background: #fff;
+  width: 100%;
+  min-height: calc(100vh - 100px);
+  padding: 30px 40px 0 20px;
+}
+
+.title {
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: var(--primary-color-2);
+}
+
+.container footer {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

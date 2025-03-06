@@ -1,0 +1,10 @@
+.brand .title {
+  font-weight: 500;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  color: var(--primary-color-2);
+}
+
+.brand .btn-action {
+  margin-bottom: 20px;
+}

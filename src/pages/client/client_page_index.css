@@ -1,0 +1,235 @@
+.client {
+  background: #fff;
+}
+
+.client .header,
+.client .content {
+  padding: 0 200px;
+  background: #fff;
+  width: 100%;
+}
+
+.client .header {
+  display: flex;
+  justify-content: space-between;
+  height: 75px !important;
+  width: 100%;
+  border-bottom: 1px solid var(--primary-color-2);
+}
+
+.client .header .logo {
+  width: 25%;
+  height: 60px;
+  position: relative;
+  left: -15px;
+  top: 10px;
+}
+
+.client .header .logo img {
+  cursor: pointer;
+}
+
+.client .header .navbar {
+  width: 40%;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20px;
+}
+
+.client .header .navbar .nav-item {
+  color: #444;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin: 10px 40px 0 0;
+}
+
+.client .header .navbar .nav-item.active {
+  color: var(--client-color-1);
+}
+
+.client .header .navbar .nav-item:hover {
+  color: var(--client-color-1);
+}
+
+.client .header .header-right {
+  width: 25%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.client .header .header-right .header-right_search-box {
+  width: 260px;
+  display: flex;
+  align-items: center;
+}
+
+.client .header .header-right .header-right_search-box .ant-input,
+.client .header .header-right .header-right_search-box .ant-btn {
+  border: none;
+  background: var(--client-background-1);
+}
+.client
+  .header
+  .header-right
+  .header-right_search-box
+  .ant-btn.ant-input-search-button:hover
+  > span {
+  color: var(--client-color-1);
+}
+
+.client .header .header-right .header-right_search-box .ant-input {
+  font-size: 12px;
+  height: 32px;
+}
+
+.client .header .header-right .header-right_search-box .ant-input:focus-within {
+  box-shadow: none;
+}
+
+.client .header .header-right .header-right_search-box .anticon {
+  font-size: 14px;
+}
+
+.client .header .header-right .header-right_cart {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100px;
+}
+
+.client .header .header-right .header-right_cart .header-right_cart_cart-icon,
+.client .header .header-right .header-right_cart .header-right_cart_heart-icon {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.client
+  .header
+  .header-right
+  .header-right_cart
+  .header-right_cart_cart-icon:hover,
+.client
+  .header
+  .header-right
+  .header-right_cart
+  .header-right_cart_heart-icon:hover {
+  color: #db4444;
+}
+
+.client
+  .header
+  .header-right
+  .header-right_cart
+  .header-right_cart_cart-icon
+  span,
+.client
+  .header
+  .header-right
+  .header-right_cart
+  .header-right_cart_heart-icon
+  span {
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  width: 20%;
+  min-width: 180px;
+  padding: 20px;
+}
+
+.footer-column input,
+.footer-column input:hover,
+.footer-column input:focus {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+  border-right: none;
+}
+
+.footer-column input::placeholder {
+  color: #fff;
+}
+
+.footer-column button,
+.footer-column button:hover {
+  background-color: transparent !important;
+  border: 1px solid #fff !important;
+  border-left: none !important;
+}
+
+.footer-column button:hover > span {
+  color: var(--client-color-1);
+}
+
+.footer-column h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.footer-column p,
+.footer-column ul {
+  font-size: 14px;
+  color: #ccc;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin: 8px 0;
+}
+
+.footer-column ul li a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.qr-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qr-code {
+  width: 60px;
+}
+
+.app-links {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.app-img {
+  width: 100px;
+}
+
+.social-icons {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.social-icons svg {
+  margin-right: 10px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.social-icons svg:hover {
+  color: #1890ff;
+}

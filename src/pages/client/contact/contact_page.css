@@ -1,0 +1,122 @@
+.contact {
+  width: 100%;
+  min-height: 85vh;
+}
+
+.contact__breadcrumb {
+  margin: 30px 0;
+}
+
+.contact__content {
+  margin-top: 100px;
+  display: flex;
+}
+
+.content__information {
+  width: 300px;
+  height: 400px;
+}
+
+.call-us,
+.write-us {
+  width: 100%;
+  padding: 20px;
+}
+
+.call-us__box,
+.write-us__box {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.call-us {
+  height: 40%;
+}
+
+.write-us {
+  height: 60%;
+}
+
+.call-us__box--icon,
+.write-us__box--icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--client-color-1);
+  color: #fff;
+  font-size: 20px;
+}
+
+.call-us__box--text,
+.write-us__box--text {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  padding-left: 15px;
+}
+
+.call-us p,
+.write-us p {
+  margin: 10px 0;
+}
+
+.content__feedback {
+  width: 820px;
+  height: 100%;
+  padding: 20px 30px;
+}
+
+.feedback__form {
+  height: 280px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.input__name,
+.input__email,
+.input__phone {
+  height: 50px;
+}
+
+.input__name input,
+.input__email input,
+.input__phone input {
+  height: 50px;
+}
+
+.input__name {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.input__email {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.input__phone {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.input__message {
+  grid-area: 2 / 1 / 3 / 4;
+}
+
+.input_submit {
+  display: flex;
+  justify-content: end;
+}
+
+.input_submit button {
+  width: 200px;
+  height: 50px;
+  background-color: var(--client-color-1);
+  color: #fff;
+}
+
+.input_submit button:hover {
+  color: var(--client-color-1) !important;
+}

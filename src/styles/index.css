@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Noto+Serif:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,900&display=swap");
+
+:root {
+  --client-background-1: #f5f5f5;
+  --client-color-1: #db4444;
+  /*--primary-color-3: #f9cdad;
+  --primary-color-4: #fc9d9a;
+  --primary-color-5: #fe4365; */
+
+  --primary-color-1: #273240;
+  --primary-color-2: #a6abc8;
+  --primary-color-3: #082431;
+  --primary-color-4: #707fdd;
+  --primary-color-5: #5a6acf;
+
+  --background-color-1: #f1f2f7;
+  --background-color-2: #707fdd10;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  list-style: none;
+  box-sizing: border-box;
+  font-family: "Noto Serif", serif;
+}
+
+.ant-modal-header .ant-modal-title {
+  font-size: 15px;
+  color: var(--primary-color-4);
+}
+
+.ant-modal-body .label-input {
+  color: var(--primary-color-2);
+  font-size: 13px;
+}
+.ant-btn:hover {
+  background-color: var(--background-color-1) !important;
+  color: var(--primary-color-5) !important;
+  border-color: var(--background-color-2) !important;
+}
+
+/**
+
+.menu-custom li span,
+.ant-layout-sider-trigger,
+.ant-menu-item {
+  color: rgb(0, 227, 150) !important;
+}
+
+.ant-menu-item:hover,
+.ant-menu-item-selected {
+  color: #1890ff;  Màu xanh dương khi được chọn 
+}
+
+.menu-bar {
+  min-height: 92vh;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: 1rem;
+  position: relative;
+}
+
+.label-input {
+  padding: 0 0 0 5px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: darkgray;
+}
+
+.form-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  padding: 50px 40px;
+}
+
+.custom-button:hover {
+  border: 1px solid rgb(0, 227, 150) !important;
+  color: rgb(0, 227, 150) !important;
+} 
+*/
