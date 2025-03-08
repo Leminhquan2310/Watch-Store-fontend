@@ -20,6 +20,9 @@ import About from "./pages/client/about/about_page.jsx";
 import ProductDetail from "./pages/client/product-detail/product-detail_page.jsx";
 import Product from "./pages/client/product/product_page.jsx";
 import Feedback from "./pages/admin/feedback/feedback_page.jsx";
+import Cart from "./pages/client/cart/cart_page.jsx";
+import Wishlist from "./pages/client/wishlist/wishlist_page.jsx";
+import CheckoutPage from "./pages/client/checkout/checkout_page.jsx";
 
 const router = createBrowserRouter([
   {
@@ -46,6 +49,18 @@ const router = createBrowserRouter([
       {
         path: "product-detail",
         element: <ProductDetail />,
+      },
+      {
+        path: "cart",
+        element: <Cart />,
+      },
+      {
+        path: "checkout",
+        element: <CheckoutPage />,
+      },
+      {
+        path: "wishlist",
+        element: <Wishlist />,
       },
       {
         path: "404",

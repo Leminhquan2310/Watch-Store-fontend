@@ -15,11 +15,14 @@ import {
   ShoppingCartOutlined,
   TwitterOutlined,
 } from "@ant-design/icons";
+import { useSelector } from "react-redux";
 const { Search } = Input;
 function ClientPage() {
   const nav = useNavigate();
   const location = useLocation();
-  console.log(location.pathname);
+
+  const Wishlist = useSelector((state) => state.wishlist);
+  const cart = useSelector((state) => state.cart);
 
   return (
     <Layout className="client">
@@ -69,11 +72,27 @@ function ClientPage() {
             <Search placeholder="What are you looking for?" />
           </div>
           <div className="header-right_cart">
-            <div className="header-right_cart_cart-icon">
-              <HeartOutlined />
-            </div>
-            <div className="header-right_cart_heart-icon">
+            <div
+              onClick={() => {
+                nav("cart");
+              }}
+              className="header-right_cart_heart-icon"
+            >
               <ShoppingCartOutlined />
+              <div style={{ marginLeft: "3px", fontSize: "11px" }}>
+                {cart.totalQuantity}
+              </div>
+            </div>
+            <div
+              onClick={() => {
+                nav("wishlist");
+              }}
+              className="header-right_cart_cart-icon"
+            >
+              <HeartOutlined />
+              <div style={{ marginLeft: "3px", fontSize: "11px" }}>
+                {Wishlist.length}
+              </div>
             </div>
           </div>
         </div>

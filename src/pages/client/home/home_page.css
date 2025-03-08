@@ -187,9 +187,10 @@
   cursor: pointer;
 }
 
-.list-card__card .card__like:hover {
-  color: var(--client-color-1);
-  border-color: var(--client-color-1);
+.list-card__card .card__like.active {
+  background: var(--client-color-1);
+  color: #fff;
+  border: 1px solid #fff;
 }
 
 .list-card__card img {
@@ -408,7 +409,10 @@
   cursor: pointer;
 }
 
-.item .item__like:hover,
+.item .item__like.active {
+  background-color: var(--client-color-1);
+}
+
 .item .item__review:hover {
   background-color: var(--client-color-1);
   color: #ffffff;
@@ -529,8 +533,10 @@
   color: #fff;
   cursor: pointer;
 }
+.content__item .item__like.active {
+  background-color: var(--client-color-1);
+}
 
-.content__item .item__like:hover,
 .content__item .item__review:hover {
   background-color: var(--client-color-1);
   color: #ffffff;

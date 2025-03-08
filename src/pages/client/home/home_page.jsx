@@ -19,10 +19,10 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { getProductCondition } from "../../../service/productService";
 import { getAllBrand } from "../../../service/brandService";
-
-const formatCurrency = (amount) => {
-  return amount.toLocaleString("vi-VN");
-};
+import { useDispatch, useSelector } from "react-redux";
+import { toggle_wishlist } from "../../../redux/action/wishlistActions";
+import { addToCart } from "../../../redux/action/cartActions";
+import { formatCurrency } from "../../../components/formatCurrency";
 
 function Home() {
   const nav = useNavigate();
@@ -34,6 +34,12 @@ function Home() {
   const [listBrands, setListBrands] = useState([]);
   const [listBestSeller, setListBestSeller] = useState([]);
   const [listProductNewest, setListProductNewest] = useState([]);
+  const wishlist = useSelector((state) => state.wishlist);
+  const dispatch = useDispatch();
+
+  const checkInWishlist = (id) => {
+    return wishlist.some((item) => item._id === id);
+  };
 
   const handleScrollNext = () => {
     slide_cardRef.current.scrollLeft += 280;
@@ -169,7 +175,12 @@ function Home() {
             {listFlashSale.map((item, index) => (
               <div className="list-card__card" key={index}>
                 <div className="card__discount">{item.discount}%</div>
-                <div className="card__like">
+                <div
+                  onClick={() => dispatch(toggle_wishlist(item))}
+                  className={`card__like ${
+                    checkInWishlist(item._id) ? "active" : ""
+                  }`}
+                >
                   <HeartOutlined />
                 </div>
                 <img
@@ -179,7 +190,12 @@ function Home() {
                   src={item.image_main.url}
                   alt="card"
                 />
-                <div className="card__btnAdd">Add to cart</div>
+                <div
+                  onClick={() => dispatch(addToCart(item))}
+                  className="card__btnAdd"
+                >
+                  Add to cart
+                </div>
                 <div
                   onClick={() => {
                     nav("product-detail");
@@ -283,12 +299,20 @@ function Home() {
           {listBestSeller.map((item, index) => (
             <div key={index} className="item">
               <Tooltip placement="top" title="Add to Wishlist">
-                <div className="item__like">
+                <div
+                  onClick={() => dispatch(toggle_wishlist(item))}
+                  className={`item__like ${
+                    checkInWishlist(item._id) ? "active" : ""
+                  }`}
+                >
                   <HeartOutlined />
                 </div>
               </Tooltip>
               <Tooltip placement="top" title="Add to Cart">
-                <div className="item__review">
+                <div
+                  onClick={() => dispatch(addToCart(item))}
+                  className="item__review"
+                >
                   <ShoppingCartOutlined />
                 </div>
               </Tooltip>
@@ -315,7 +339,7 @@ function Home() {
                   đ
                 </div>
                 <div className="item__price--discount">
-                  {formatCurrency(item.price)}
+                  {formatCurrency(item.price)}đ
                 </div>
               </div>
               <div className="item__rate">
@@ -352,12 +376,20 @@ function Home() {
             {listProductNewest.map((item, index) => (
               <div key={index} className="content__item">
                 <Tooltip placement="top" title="Add to Wishlist">
-                  <div className="item__like">
+                  <div
+                    onClick={() => dispatch(toggle_wishlist(item))}
+                    className={`item__like ${
+                      checkInWishlist(item._id) ? "active" : ""
+                    }`}
+                  >
                     <HeartOutlined />
                   </div>
                 </Tooltip>
                 <Tooltip placement="top" title="Add to Cart">
-                  <div className="item__review">
+                  <div
+                    onClick={() => dispatch(addToCart(item))}
+                    className="item__review"
+                  >
                     <ShoppingCartOutlined />
                   </div>
                 </Tooltip>

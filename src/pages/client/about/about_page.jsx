@@ -4,6 +4,7 @@ import human1 from "../../../assets/human/human1.png";
 import human2 from "../../../assets/human/human2.png";
 import human3 from "../../../assets/human/human3.png";
 import about1 from "../../../assets/about-image/about1.png";
+import { Breadcrumb } from "antd";
 
 const stats = [
   { icon: "👤", number: "10.5k", label: "Sellers active on our site" },
@@ -32,6 +33,17 @@ const team = [
 function About() {
   return (
     <div className="about-container">
+      <Breadcrumb
+        className="contact__breadcrumb"
+        items={[
+          {
+            title: <a href="/">Home</a>,
+          },
+          {
+            title: "Cart",
+          },
+        ]}
+      />
       <div className="about-header">
         <div className="about-text">
           <h2>Our Story</h2>

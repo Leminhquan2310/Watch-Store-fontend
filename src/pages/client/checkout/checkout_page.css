@@ -1,0 +1,49 @@
+.checkout {
+  display: flex;
+  padding: 20px;
+  justify-content: center;
+}
+
+.checkout .form-check {
+  width: 70%;
+  border: 1px solid #88888888;
+  padding: 30px;
+}
+
+.checkout input {
+  height: 40px;
+}
+
+.checkout .list-payment {
+  width: 100%;
+}
+
+.checkout .list-payment .card {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #88888888;
+  padding: 10px 0 0 10px;
+  background-color: #f8f8f8;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+.checkout .list-payment .card .card__title {
+  display: flex;
+}
+.checkout .list-payment .card .card__title img {
+  width: 80px;
+  height: 80px;
+  background-position: center;
+  margin-right: 10px;
+}
+.checkout .list-payment .card .card__price {
+  padding: 5px 10px;
+  text-align: right;
+}
+
+.checkout .list-payment .provisionalPrice {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 10px 10px 0;
+}
